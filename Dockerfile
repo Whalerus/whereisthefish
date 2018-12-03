@@ -1,5 +1,5 @@
 # Creates an image with the required set up for Fish Plays Pokémon to run.
-FROM phusion/baseimage:0.9.15
+FROM phusion/baseimage:0.11
 MAINTAINER Patrick Facheris <plfacheris@gmail.com>
 ENV HOME /root
 ENV DISPLAY :0
@@ -31,7 +31,7 @@ RUN /bin/bash ./2.4/opencv2_4_9.sh
 WORKDIR /
 
 # Install FFMPEG
-RUN add-apt-repository ppa:jon-severinsson/ffmpeg && apt-get -qq update && apt-get -qq -y install \
+RUN apt-get -qq update && apt-get -qq -y install \
     ffmpeg && apt-get -qq -y clean
 
 # Configure XVFB
